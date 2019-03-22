@@ -1,29 +1,23 @@
 <template>
    <div>
-      <h1>ログインテスト</h1>
-      <p>エラーコード: {{ errorCode }}</p>
-      <p>エラーメッセージ: {{ errorMessage }}</p>
+      <h1>ストアカウントアップテスト</h1>
+      <p>カウント数: {{ counter }}</p>
       <div>
-         <v-btn @click="eventHandle">Googleでログイン</v-btn>
+         <v-btn @click="eventHandle">カウントアップ</v-btn>
       </div>
    </div>
 </template>
 
 <script>
-import firebase from '~/util/firebase'
+import { mapState } from 'vuex';
 
 export default {
-   data() {
-      return {
-         errorCode: '',
-         errorMessage: ''
-      };
+   computed: {
+      ...mapState(['counter'])
    },
    methods: {
       eventHandle(){
-         var provider = new firebase.auth.GoogleAuthProvider();
-         firebase.auth().signInWithPopup(provider);
-         
+         this.$store.dispatch('actIncrement', { amount: 1 });
       }
    }
 }
