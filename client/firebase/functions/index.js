@@ -5,5 +5,7 @@
 //  response.send("Hello from Firebase!");
 // });
 
-//動作確認用 hello world
+// 動作確認用 hello world
 exports.hello = require('./modules/hello').hello;
+// DGLスラックから@lineでlineのDGLグループに飛ばす
+exports.slackToLine = require('./modules/slackToLine').slackToLine;
