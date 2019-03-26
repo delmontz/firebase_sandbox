@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import firebase from '~/util/firebase'
+import firebase from '~/utils/firebase'
 
 export default {
    data() {
