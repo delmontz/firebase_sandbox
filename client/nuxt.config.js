@@ -72,6 +72,7 @@ module.exports = {
          
       }
    },
+   //nuxt build の出力先
    generate: {
       dir: '../firebase/public'
    }
