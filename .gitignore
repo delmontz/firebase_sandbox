@@ -69,3 +69,6 @@ firebase/public/*
 
 #nuxt
 .nuxt
+
+#実験用フォルダ
+tmp
