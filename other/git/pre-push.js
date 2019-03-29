@@ -1,9 +1,10 @@
 const execSync = require('child_process').execSync;
+const boxen = require('boxen');
 
 const branch_name = execSync(`git branch --contains`).toString().match(/\* (?:\(no branch, rebasing )?([^)\n]+)/)[1];
 
 if (branch_name === 'develop' || branch_name === 'master' || branbranch_name === 'release') {
-   console.log(boxen(`☠⚠️${branch_name}ブランチにpushしないで！！ @delmontz⚠️️☠`, {
+   console.error(boxen(`☠⚠️⚠️⚠️${branch_name}ブランチにpushしないで！！ @delmontz⚠️⚠️⚠️️☠`, {
       borderStyle: 'double',
       align: 'center'
    }));

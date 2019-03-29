@@ -13,17 +13,13 @@ let isMissmatch = !prefix.some(str => {
 });
 
 if(isMissmatch){
-   console.log(boxen('☠⚠️コミットメッセージにプレフィックスをつけてね @delmontz  prefix:半角スペース ⚠️️☠', {
+   console.error(boxen('☠⚠️コミットメッセージにプレフィックスをつけてね @delmontz  prefix:半角スペース ⚠️️☠', {
       borderStyle: 'double',
       align: 'center'
    }));
-   //以上終了 コミット中止
+   //異常終了 コミット中止
    process.exit(1);
 }else{
-   console.log(boxen('進捗〜 進捗〜 あざます！！', {
-      borderStyle: 'double',
-      align: 'center'
-   }));
    //正常終了
    process.exit(0);
 }
