@@ -6,7 +6,8 @@
    "private": true,
    "husky": {
       "hooks": {
-         "commit-msg": "node ./other/git/commit-msg.js"
+         "commit-msg": "node ./other/git/commit-msg.js",
+         "pre-push": "node ./other/git/pre-push.js"
       }
    },
    "scripts": {
