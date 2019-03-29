@@ -20,7 +20,7 @@ if(isMissmatch){
    //以上終了 コミット中止
    process.exit(1);
 }else{
-   console.log(boxen('進捗〜👆👆 進捗〜 💮💮', {
+   console.log(boxen('進捗〜 進捗〜 あざます！！', {
       borderStyle: 'double',
       align: 'center'
    }));
