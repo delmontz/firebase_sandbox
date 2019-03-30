@@ -1,9 +1,11 @@
 <template>
-   <div class="list">
-      <h2>{{ listName }}</h2>
-      <Draggable :list="list" group="all">
-         <div v-for="(el, index) in list" :key="el.id">{{ index }} {{ el.name }}</div>
-      </Draggable>
+   <div>
+      <v-sheet class="sheet" color="green lighten-5">
+         <h2>{{ listName }}</h2>
+         <Draggable :list="list" group="all" ghost-class="ghost" class="area">
+            <v-card class="card" v-for="(el, index) in list" :key="index">{{ el.title }} {{ el.contents}}</v-card>
+         </Draggable>
+      </v-sheet>
    </div>
 </template>
 
@@ -23,7 +25,7 @@ export default {
          type: String,
          default: '未定'
       },
-      group: {
+      groupName: {
          type: String,
          default: 'default'
       }
@@ -40,4 +42,25 @@ export default {
 </script>
 
 <style scoped>
+.sheet {
+   padding: 5px;
+   margin: 0 5px;
+   width: 270px;
+}
+
+.card {
+   margin: 5px;
+   min-height: 50px;
+   width: 250px;
+}
+
+.ghost {
+   visibility : hidden;
+}
+
+.area {
+   display: flex;
+   flex-direction: column;
+   min-height: 20px;
+}
 </style>

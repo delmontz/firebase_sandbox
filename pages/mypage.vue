@@ -1,20 +1,10 @@
 <template>
-   <div id="app">
-      <h1 id="top-label">{{ auth.userName }}のToDoリスト</h1>
-      <div id="main">
-         <div class="list">
-            <h2>リスト1</h2>
-            <Draggable :list="list1" group="all">
-               <div v-for="(el, index) in list1" :key="el.id">{{ index }} {{ el.name }}</div>
-            </Draggable>
-         </div>
-         <div class="list">
-            <h2>リスト2</h2>
-            <Draggable :list="list2" group="all">
-               <div v-for="(el, index) in list2" :key="el.id">{{ index }} {{ el.name }}</div>
-            </Draggable>
-         </div>
-         <TodoColumn :list="list1" />
+   <div class="app">
+      <h1 class="top-label">{{ auth.userName }}のToDoリスト</h1>
+      <div class="main">
+         <TodoColumn :list="list1" list-name="ToDo" group-name="all"/>
+         <TodoColumn :list="list2" list-name="進行中" group-name="all"/>
+         <TodoColumn :list="list3" list-name="完了" group-name="all"/>
       </div>
    </div>
 </template>
@@ -34,15 +24,16 @@ export default {
    data() {
       return {
          list1: [
-            { name: "John", id: 1 },
-            { name: "Joao", id: 2 },
-            { name: "Jean", id: 3 },
-            { name: "Gerard", id: 4 }
+            { title: 'スズキ', content: 'ほげだだほげ' },
+            { title: "佐藤", content: 'sあいうえだｓお' },
          ],
          list2: [
-            { name: "Juan", id: 5 },
-            { name: "Edgard", id: 6 },
-            { name: "Johnson", id: 7 }
+            { title: '田中', content: 'ほげほだｓｄげ' },
+            { title: "アイオダイン", content: 'sあいだｓｄうえお' },
+         ],
+         list3: [
+            { title: '樹種', content: 'ほげだｄほげ' },
+            { title: "ｈしう", content: 'sあいだｄさうえお' },
          ]
       };
    },
@@ -55,17 +46,20 @@ export default {
 </script>
 
 <style scoped>
-#app {
+.app {
    display: flex;
    flex-direction: column;
    align-items: center;
+   background-color: cornflowerblue;
+   width: 100%;
+   height: 100%;
 }
 
-#top-label {
+.top-label {
    margin-bottom: 30px;
 }
 
-#main {
+.main {
    display: flex;
 }
 
