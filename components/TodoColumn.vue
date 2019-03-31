@@ -3,18 +3,23 @@
       <v-sheet class="sheet" color="green lighten-5">
          <h2>{{ listName }}</h2>
          <Draggable :list="list" group="all" ghost-class="ghost" class="area">
-            <v-card class="card" v-for="(el, index) in list" :key="index">{{ el.title }} {{ el.contents}}</v-card>
+            <TodoCard v-for="(el, index) in list" :item="el" :key="index" class="card"/>
          </Draggable>
+         <v-btn fab dark small color="indigo">
+            <v-icon dark>add</v-icon>
+         </v-btn>
       </v-sheet>
    </div>
 </template>
 
 <script>
 import Draggable from 'vuedraggable';
+import TodoCard from '~/components/TodoCard'
 
 export default {
    components: {
-      Draggable
+      Draggable,
+      TodoCard
    },
    props: {
       list: {
@@ -52,6 +57,7 @@ export default {
    margin: 5px;
    min-height: 50px;
    width: 250px;
+   background-color: whitesmoke;
 }
 
 .ghost {
