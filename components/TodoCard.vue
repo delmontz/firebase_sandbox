@@ -30,10 +30,10 @@ export default {
    methods: {
       setShowDeleteState(state){
          if(state){
-            this.showFlag = true;
+            this.showDeleteFlag = true;
          }else{
             setTimeout(() => {
-               this.showFlag = false;
+               this.showDeleteFlag = false;
             }, 500);
          }
       }
