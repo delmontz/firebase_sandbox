@@ -3,7 +3,7 @@
       <v-btn v-if="showDeleteFlag" class="button" depressed small color="red">
          <v-icon>clear</v-icon>
       </v-btn>
-      <v-textarea class="textarea" v-model="item.content" @focus="setShowDeleteState(true)" @blur="setShowDeleteState(false)" hide-details solo auto-grow/>
+      <v-textarea @change="update" class="textarea" v-model="item.content" @focus="setShowDeleteState(true)" @blur="setShowDeleteState(false)" hide-details solo auto-grow/>
    </div>
 </template>
 
@@ -36,6 +36,9 @@ export default {
                this.showDeleteFlag = false;
             }, 500);
          }
+      },
+      update(){
+         this.$emit('update');
       }
    }
 }

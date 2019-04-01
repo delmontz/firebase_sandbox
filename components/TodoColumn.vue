@@ -2,8 +2,8 @@
    <div>
       <v-sheet class="sheet" color="green lighten-5">
          <h2>{{ listName }}</h2>
-         <Draggable :list="list" group="all" ghost-class="ghost" class="area">
-            <TodoCard v-for="(el, index) in list" :item="el" :key="index" class="card"/>
+         <Draggable @change="update" :list="list" group="all" ghost-class="ghost" class="area">
+            <TodoCard @update="update" v-for="(el, index) in list" :item="el" :key="index" class="card"/>
          </Draggable>
          <v-btn fab dark small color="indigo">
             <v-icon dark>add</v-icon>
@@ -42,6 +42,9 @@ export default {
    computed: {
    },
    methods: {
+      update(){
+         this.$emit('update');
+      }
    }
 }
 </script>
