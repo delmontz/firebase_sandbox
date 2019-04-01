@@ -1,9 +1,9 @@
 <template>
    <div>
-      <v-btn v-if="showFlag" class="button" depressed small color="red">
+      <v-btn v-if="showDeleteFlag" class="button" depressed small color="red">
          <v-icon>clear</v-icon>
       </v-btn>
-      <v-textarea class="textarea" v-model="item.content" @focus="setShowState(true)" @blur="setShowState(false)" hide-details solo auto-grow/>
+      <v-textarea class="textarea" v-model="item.content" @focus="setShowDeleteState(true)" @blur="setShowDeleteState(false)" hide-details solo auto-grow/>
    </div>
 </template>
 
@@ -21,14 +21,14 @@ export default {
    },
    data() {
       return {
-         showFlag: false
+         showDeleteFlag: false
       };
    },
    computed: {
       
    },
    methods: {
-      setShowState(state){
+      setShowDeleteState(state){
          if(state){
             this.showFlag = true;
          }else{
@@ -36,7 +36,6 @@ export default {
                this.showFlag = false;
             }, 500);
          }
-
       }
    }
 }
