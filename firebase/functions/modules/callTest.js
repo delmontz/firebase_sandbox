@@ -2,15 +2,16 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 
 admin.initializeApp();
+const db = admin.firestore();
 
-exports.callTest = functions.region('asia-northeast1').https.onCall((data, context) => {
-   return {
-      data1: 'test1',
-      data2: 'test2',
-      data3: 'test3'
+exports.callTest = functions.region('asia-northeast1').https.onCall(async (data, context) => {
+   if(context.auth.uid){
+      const docRef = db.collection('user').doc(context.auth.uid);
+      const  documentSnapshot = await docRef.get();
+      const record = documentSnapshot.data();
+
+      return {
+         data: record
+      }
    }
 });
-
-function isLogin(context){
-
-}
