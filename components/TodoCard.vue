@@ -1,9 +1,19 @@
 <template>
    <div>
-      <v-btn v-if="showDeleteFlag" class="button" depressed small color="red">
+      <v-btn v-if="showDeleteFlag" class="button" depressed small color="red" @click="remove">
          <v-icon>clear</v-icon>
       </v-btn>
-      <v-textarea @change="update" class="textarea" v-model="item.content" @focus="setShowDeleteState(true)" @blur="setShowDeleteState(false)" hide-details solo auto-grow/>
+      <v-textarea 
+         @change="update"
+         class="textarea"
+         v-model="item.content"
+         @focus="setShowDeleteState(true)"
+         @blur="setShowDeleteState(false)"
+         hide-details
+         solo
+         auto-grow
+         row-height=10
+      />
    </div>
 </template>
 
@@ -17,6 +27,9 @@ export default {
       item: {
          type: Object,
          default: () => {}
+      },
+      index: {
+         type: Number
       }
    },
    data() {
@@ -39,6 +52,10 @@ export default {
       },
       update(){
          this.$emit('update');
+      },
+      remove(){
+         this.$emit('remove', this.index);
+         this.update();
       }
    }
 }
@@ -54,5 +71,6 @@ export default {
 }
 .textarea{
    overflow: visible;
+   word-break: break-all;
 }
 </style>
