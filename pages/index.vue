@@ -9,7 +9,6 @@
 <script>
 import firebase from '~/utils/firebase'
 
-
 export default {
    data() {
       return {
@@ -25,6 +24,13 @@ export default {
             this.$toasted.success('🎉🎉ログインしました！！🎉🎉');
          });
       }
+   },
+   mounted(){
+      const callTest = firebase.app().functions('asia-northeast1').httpsCallable('callTest');
+      callTest().then(function(result) {
+         //var sanitizedMessage = result.data.text;
+         console.log(result);
+      });
    }
 }
 </script>

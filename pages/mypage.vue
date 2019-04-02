@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import firebase from '~/utils/firebase'
 import cloneDeep from'lodash.clonedeep'
 import { mapState } from 'vuex';
 

@@ -5,5 +5,7 @@
 //  response.send("Hello from Firebase!");
 // });
 
-//動作確認用 hello world
+// 動作確認用 hello world
 exports.hello = require('./modules/hello').hello;
+// onCallテスト用
+exports.callTest = require('./modules/callTest').callTest;
