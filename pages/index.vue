@@ -27,6 +27,7 @@ export default {
    },
    mounted(){
       const callTest = firebase.app().functions('asia-northeast1').httpsCallable('callTest');
+      //const callTest = firebase.functions().httpsCallable('callTest');
       callTest().then(function(result) {
          //var sanitizedMessage = result.data.text;
          console.log(result);
