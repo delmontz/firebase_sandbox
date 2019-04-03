@@ -9,3 +9,5 @@
 exports.hello = require('./modules/hello').hello;
 // onCallテスト用
 exports.callTest = require('./modules/callTest').callTest;
+// ToDoリスト取得用
+exports.getData = require('./modules/getData').getData;

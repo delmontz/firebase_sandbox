@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import firebase from '~/utils/firebase';
 import cloneDeep from'lodash.clonedeep'
 import { mapState } from 'vuex';
 
@@ -36,6 +37,9 @@ export default {
    },
    beforeMount() {
       this.rsvTodoList = cloneDeep(this.todoList);
+   },
+   fetch() {
+      const data = firebase.app().functions('asia-northeast1').httpsCallable('callTest');
    }
 }
 </script>
