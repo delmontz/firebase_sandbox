@@ -2,10 +2,10 @@
    <div>
       <v-sheet class="sheet" color="green lighten-5">
          <h2>{{ listName }}</h2>
-         <Draggable :list="list" group="all" ghost-class="ghost" class="area">
-            <TodoCard v-for="(el, index) in list" :item="el" :key="index" class="card"/>
+         <Draggable @change="update" :list="list" group="all" ghost-class="ghost" class="area">
+            <TodoCard @update="update" @remove="remove" v-for="(el, index) in list" :item="el" :key="index" :index="index" class="card"/>
          </Draggable>
-         <v-btn fab dark small color="indigo">
+         <v-btn fab dark small color="indigo" @click="add">
             <v-icon dark>add</v-icon>
          </v-btn>
       </v-sheet>
@@ -42,6 +42,16 @@ export default {
    computed: {
    },
    methods: {
+      update(){
+         this.$emit('update');
+      },
+      add(){
+         this.list.push({content: ''});
+         this.update();
+      },
+      remove(index){
+         this.list.splice(index, 1);
+      }
    }
 }
 </script>

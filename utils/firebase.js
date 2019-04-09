@@ -10,5 +10,6 @@ var config = {
    messagingSenderId: "611688612571"
 };
 firebase.initializeApp(config);
+// firebase.functions().useFunctionsEmulator('http://localhost:5000');
 
 export default firebase;
