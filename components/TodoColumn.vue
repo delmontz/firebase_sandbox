@@ -46,7 +46,7 @@ export default {
          this.$emit('update');
       },
       add(){
-         this.list.push('');
+         this.list.push({content: ''});
          this.update();
       },
       remove(index){

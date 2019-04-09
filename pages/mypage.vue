@@ -47,7 +47,14 @@ export default {
       // });
 
       const val = await firebase.app().functions('asia-northeast1').httpsCallable('getData')();
-      if(val){
+      if(val.data){
+         store.dispatch('setTodoList', val.data);
+      }else{
+         val.data = {
+            todo: [],
+            wip: [],
+            todo: []
+         }
          store.dispatch('setTodoList', val.data);
       }
    }

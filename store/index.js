@@ -7,11 +7,7 @@ const createStore = () => {
       state: () => ({
          //ログインユーザー情報
          auth: {},
-         todoList: {
-            todo: [],
-            wip: [],
-            done: []
-         }
+         todoList: {}
       }),
       mutations: {
          setAuth(state, payload) {
@@ -30,7 +26,7 @@ const createStore = () => {
          },
          async setTodoList(store, payload){
             store.commit('setTodoList', payload);
-            //await firebase.app().functions('asia-northeast1').httpsCallable('setData')(payload);
+            await firebase.app().functions('asia-northeast1').httpsCallable('setData')(payload);
          }
       }
    })

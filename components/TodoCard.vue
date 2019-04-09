@@ -6,7 +6,7 @@
       <v-textarea 
          @change="update"
          class="textarea"
-         v-model="text"
+         v-model="item.content"
          @focus="setShowDeleteState(true)"
          @blur="setShowDeleteState(false)"
          hide-details
@@ -25,8 +25,8 @@ export default {
    },
    props: {
       item: {
-         type: String,
-         default: ''
+         type: Object,
+         default: () => {}
       },
       index: {
          type: Number
