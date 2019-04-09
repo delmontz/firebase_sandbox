@@ -51,7 +51,7 @@ export default {
          store.dispatch('setTodoList', val.data);
       }else{
          val.data = {
-            todo: [],
+            done: [],
             wip: [],
             todo: []
          }
