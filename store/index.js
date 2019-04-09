@@ -1,4 +1,5 @@
 import Vuex from 'vuex'
+import firebase from '~/utils/firebase';
 
 const createStore = () => {
    return new Vuex.Store({
@@ -7,18 +8,9 @@ const createStore = () => {
          //ログインユーザー情報
          auth: {},
          todoList: {
-            todo: [
-               'hoge1dんfそfふ',
-               'んjぢbふぃhふぉhふぉ'
-            ],
-            wip: [
-               'hoge1fslんfskjfんdんfそfふ',
-               'んjぢbふぃh３９０４８４０９ふぉhふぉ'
-            ],
-            done: [
-               'ほいげっっと',
-               'んjぢbfdkfdjfkふぃhふぉhふぉ'
-            ]
+            todo: [],
+            wip: [],
+            done: []
          }
       }),
       mutations: {
@@ -36,8 +28,9 @@ const createStore = () => {
          setAuth(store, payload){
             store.commit('setAuth', payload);
          },
-         setTodoList(store, payload){
+         async setTodoList(store, payload){
             store.commit('setTodoList', payload);
+            //await firebase.app().functions('asia-northeast1').httpsCallable('setData')(payload);
          }
       }
    })

@@ -38,8 +38,18 @@ export default {
    beforeMount() {
       this.rsvTodoList = cloneDeep(this.todoList);
    },
-   fetch() {
-      const data = firebase.app().functions('asia-northeast1').httpsCallable('callTest');
+   async fetch({ store }) {
+      // const api = await firebase.app().functions('asia-northeast1').httpsCallable('getData');
+      // api().then(val => {
+      //    if(val){
+      //       store.dispatch('setTodoList', val.data);
+      //    }
+      // });
+
+      const val = await firebase.app().functions('asia-northeast1').httpsCallable('getData')();
+      if(val){
+         store.dispatch('setTodoList', val.data);
+      }
    }
 }
 </script>

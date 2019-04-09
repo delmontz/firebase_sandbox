@@ -11,3 +11,5 @@ exports.hello = require('./modules/hello').hello;
 exports.callTest = require('./modules/callTest').callTest;
 // ToDoリスト取得用
 exports.getData = require('./modules/getData').getData;
+// ToDoリスト更新用
+exports.setData = require('./modules/setData').setData;
