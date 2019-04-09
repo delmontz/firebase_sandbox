@@ -8,16 +8,16 @@ const createStore = () => {
          auth: {},
          todoList: {
             todo: [
-               { title: 'スズキ', content: 'ほげだだほげ' },
-               { title: "佐藤", content: 'sあいうえだｓお' }
+               'hoge1dんfそfふ',
+               'んjぢbふぃhふぉhふぉ'
             ],
             wip: [
-               { title: '田中', content: 'ほげほだｓｄげ' },
-               { title: "アイオダイン", content: 'sあいだｓｄうえお' }
+               'hoge1fslんfskjfんdんfそfふ',
+               'んjぢbふぃh３９０４８４０９ふぉhふぉ'
             ],
             done: [
-               { title: '樹種', content: 'ほげだｄほげ' },
-               { title: "ｈしう", content: 'sあいだｄさうえお' }
+               'ほいげっっと',
+               'んjぢbfdkfdjfkふぃhふぉhふぉ'
             ]
          }
       }),
