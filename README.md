@@ -1,5 +1,7 @@
 # firebase-client
 
+https://test-dgl-firebase.firebaseapp.com/
+
 > My tremendous Nuxt.js project
 
 ## Build Setup
