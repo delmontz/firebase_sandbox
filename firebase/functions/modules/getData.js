@@ -6,7 +6,6 @@ exports.getData = functions.region('asia-northeast1').https.onCall(async (data, 
       const docRef = db.collection('user').doc(context.auth.uid);
       const snapshot = await docRef.get();
       const record = snapshot.data();
-      console.log(record)
       return record;
    }
 });

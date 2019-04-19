@@ -8,6 +8,7 @@
 
 <script>
 import firebase from '~/utils/firebase'
+import axios from 'axios';
 
 export default {
    data() {
@@ -24,6 +25,15 @@ export default {
             this.$toasted.success('🎉🎉ログインしました！！🎉🎉');
          });
       }
+   },
+   asyncData(){
+      axios.get('https://asia-northeast1-test-dgl-firebase.cloudfunctions.net', {
+         params: {
+            cost: 100
+         }
+      }).then(res => {
+         console.log(res);
+      });
    }
 }
 </script>

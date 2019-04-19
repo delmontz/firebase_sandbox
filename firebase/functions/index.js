@@ -13,3 +13,5 @@ exports.callTest = require('./modules/callTest').callTest;
 exports.getData = require('./modules/getData').getData;
 // ToDoリスト更新用
 exports.setData = require('./modules/setData').setData;
+// rest api 実験用
+exports.rest = require('./modules/rest').rest;
